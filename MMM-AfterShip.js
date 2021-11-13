@@ -189,7 +189,7 @@ Module.register("MMM-AfterShip",{
 		shipRequest.onreadystatechange = function() {
 			if (this.readyState === 4) {
 				if (this.status === 200) {
-					self.processData(JSON.parse(this.response));
+				    self.processData(JSON.parse(this.response));
 				} else if (this.status === 401) {
 					self.config.station = "";
 					self.updateDom(self.config.animationSpeed);
@@ -260,7 +260,7 @@ Module.register("MMM-AfterShip",{
 					} else {
 						parcel.expected_delivery = moment(parcel.expected_delivery).format("DD.MMM");
 					}
-					if (parcel.history != null){
+					if (parcel.history != null && parcel.history[parcel.history.length -1]){
 						
 						parcel.message = parcel.history[parcel.history.length -1].message;
 						
